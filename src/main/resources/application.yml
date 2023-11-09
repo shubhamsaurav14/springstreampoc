@@ -1,0 +1,45 @@
+server:
+  port: 9001
+
+spring:
+  cloud:
+    stream:
+      default-binder: kafka2
+      bindings:
+        process-in-0:
+          destination: dataIn
+          binder: kafka1
+#        process-out-0:
+#          destination: dataOut
+#          binder: kafka2
+        #Test sink binding (used for testing)
+        # sendTestData-out-0:
+        #   destination: dataIn
+        #   binder: kafka1
+        #Test sink binding (used for testing)
+        receive-in-0:
+          destination: dataOut
+          binder: kafka2
+      function:
+        definition: sendTestData;process;receive
+      binders:
+        kafka1:
+          type: kafka
+          environment:
+            spring:
+              cloud:
+                stream:
+                  kafka:
+                    binder:
+                      brokers: localhost:19092
+                      #zkNodes: ${zk1}
+        kafka2:
+          type: kafka
+          environment:
+            spring:
+              cloud:
+                stream:
+                  kafka:
+                    binder:
+                      brokers: localhost:9092
+                      #zkNodes: ${zk2}
