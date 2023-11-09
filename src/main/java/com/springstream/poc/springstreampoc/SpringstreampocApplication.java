@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.messaging.Message;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,8 +19,21 @@ public class SpringstreampocApplication {
 
     @Bean
     Consumer<String> receive() {
-		return s -> log.info("kafka2 Data received..." + s);
+		return s ->
+		{
+			log.info("kafka2 Data received..." + s);
+		};	
 	}
+
+	// @Bean
+    // Consumer<Message<String>> receive() {
+	// 	return s ->
+	// 	{
+	// 		log.info("kafka2 Data received..." + s.getPayload());
+	// 		log.info(s + "");
+	// 		log.info(s.getHeaders().toString());
+	// 	};	
+	// }
 
 	@Bean
     Consumer<String> process() {

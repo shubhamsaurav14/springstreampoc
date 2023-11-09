@@ -1,4 +1,5 @@
-#HELP.md
+Read.md
+1.json
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

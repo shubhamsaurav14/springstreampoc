@@ -7,10 +7,12 @@ spring:
       default-binder: kafka2
       bindings:
         process-in-0:
-          destination: dataIn
+          group: kafka1-consumers
+          destination: kafka1topic1
           binder: kafka1
         receive-in-0:
-          destination: dataOut
+          group: kafka2-consumers
+          destination: kafka2topic2
           binder: kafka2
       function:
         definition: process;receive

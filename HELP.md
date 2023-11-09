@@ -16,3 +16,7 @@ For further reference, please consider the following sections:
 4. excute the application.
 5. you can publish the message using localhost:8080 AND localhost:8081 AND obsever the output in your console.
 
+### output screen shot
+
+![Alt text](image.png)
+
