@@ -6,6 +6,9 @@ spring:
     stream:
       default-binder: kafka2
       bindings:
+        fizzBuzzProducer-out-0:
+          destination: numbers
+          binder: kafka1
         process-in-0:
           group: kafka1-consumers
           destination: kafka1topic1
